@@ -115,6 +115,8 @@ function formatWatchTime(totalSeconds) {
 }
 
 function App() {
+  const [showHelpModal, setShowHelpModal] = useState(false);
+
   const [viewportHeight, setViewportHeight] = useState(() => {
     if (typeof window === 'undefined') {
       return 900;
@@ -291,11 +293,48 @@ function App() {
         />
         <p>
           {activeDay
-            ? `Showing ${filteredRows.length} videos on ${activeDay} | Total watch time: ${formatWatchTime(totalWatchSeconds)}`
-            : 'No rows were parsed from CSV'}
+            ? `Showing ${filteredRows.length} videos on ${activeDay} | Total watch time: ${formatWatchTime(totalWatchSeconds)} `
+            : 'No rows were parsed from CSV '}
+          {' | '}
+          <button
+            type="button"
+            className="help-link-button"
+            onClick={() => setShowHelpModal(true)}
+          >
+            How does this work?
+          </button>
         </p>
         <Chart options={myOpts} />
       </div>
+
+      {showHelpModal && (
+        <div
+          className="modal-overlay"
+          onClick={() => setShowHelpModal(false)}
+          role="presentation"
+        >
+          <div
+            className="modal-card"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="help-modal-title"
+            onClick={(event) => event.stopPropagation()}
+          >
+            <button
+              type="button"
+              className="modal-close"
+              aria-label="Close help"
+              onClick={() => setShowHelpModal(false)}
+            >
+              X
+            </button>
+            <h2 id="help-modal-title">How this app works</h2>
+            <p>This app contains over 77,000 YouTube videos I've watched from 2019 - 2026. I used a sentence classifier machine learning model to separate videos into categories, and those categories are displayed here as the large circles. Each smaller circle represents one YouTube video, and the larger the circle, the longer the video. You can also use the bar at the top of the page to scrub through time and view how my watch habits change throughout time. Happy exploring!</p>
+            <br />
+            <p><b>Note:</b> Sometimes, the total watch time or the watch time of a video won't make sense. YouTube's data doesn't provide me with how long I personally have spent watching the video, so I had to go off how long the video is. This means there are some times where it says I watched more than 24h of content in a day, which would be impossible!</p>
+          </div>
+        </div>
+      )}
 
       <pre id="csv">{csvRaw}</pre>
     </>

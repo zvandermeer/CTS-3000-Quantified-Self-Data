@@ -25,3 +25,52 @@
 pre {
   white-space: pre-wrap;
 }
+
+.help-link-button {
+    border: none;
+    background: transparent;
+    color: #0a55c7;
+    text-decoration: underline;
+    cursor: pointer;
+    font: inherit;
+    padding: 0;
+}
+
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.35);
+    display: grid;
+    place-items: center;
+    padding: 1rem;
+    z-index: 2000;
+}
+
+.modal-card {
+    position: relative;
+    width: min(650px, 100%);
+    background: #fff;
+    padding: 1.25rem;
+}
+
+.modal-card h2 {
+    margin: 0 0 0.75rem;
+}
+
+.modal-card p {
+    margin: 0;
+    line-height: 1.45;
+}
+
+.modal-close {
+    position: absolute;
+    top: 0.55rem;
+    right: 0.7rem;
+    border: none;
+    background: transparent;
+    color: #1d1d1d;
+    font-size: 1.75rem;
+    font-weight: 700;
+    line-height: 1;
+    cursor: pointer;
+}
