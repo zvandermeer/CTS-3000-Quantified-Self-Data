@@ -1,0 +1,28 @@
+[project]
+name = "cts3000"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = [
+    "beautifulsoup4>=4.14.3",
+    "lxml>=6.0.2",
+    "pandas>=3.0.2",
+    "requests>=2.33.1",
+    "hdbscan>=0.8.42",
+    "numpy>=2.4.4",
+    "pandas>=3.0.2",
+    "plotly>=6.6.0",
+    "scikit-learn>=1.8.0",
+    "scipy>=1.17.1",
+    "sentence-transformers>=5.3.0",
+    "tqdm>=4.67.3",
+    "umap-learn>=0.5.11",
+    "highcharts-core>=1.10.3",
+]
+
+[dependency-groups]
+dev = [
+    "lxml-stubs>=0.5.1",
+    "types-requests>=2.33.0.20260402",
+]

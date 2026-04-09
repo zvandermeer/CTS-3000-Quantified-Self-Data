@@ -1,0 +1,27 @@
+#csv {
+    display: none;
+}
+
+.timeline-wrap {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0.75rem;
+}
+
+.timeline-wrap label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+}
+
+.timeline-wrap input[type='range'] {
+    width: min(100%, 900px);
+}
+
+.timeline-wrap p {
+    margin: 0.5rem 0 1rem;
+}
+
+pre {
+  white-space: pre-wrap;
+}
