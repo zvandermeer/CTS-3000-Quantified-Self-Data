@@ -207,7 +207,7 @@ function App() {
         height: chartHeight,
       },
       title: {
-        text: 'Videos I watched over time',
+        text: 'Exploring my Digital Self through YouTube',
         align: 'left',
       },
       subtitle: {
