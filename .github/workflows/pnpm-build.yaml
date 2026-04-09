@@ -29,22 +29,23 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: ./frontend
+        working-directory: ./frontend/
     steps:
       - name: Checkout
         uses: actions/checkout@v4
         with:
           ref: main
       - name: Setup pnpm
-        uses: pnpm/action-setup@v4.0.0
+        uses: pnpm/action-setup@v5
         with:
-          version: 9
+          version: 10
           run_install: false
       - name: Install Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 24
           cache: 'pnpm'
+          cache-dependency-path: './frontend/pnpm-lock.yaml'
       - name: Install dependencies
         run: pnpm install
       - name: Build
@@ -55,7 +56,7 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           # Upload dist folder
-          path: './dist'
+          path: './frontend/dist'
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
