@@ -205,7 +205,7 @@ function App() {
         height: chartHeight,
       },
       title: {
-        text: 'What I watched over time',
+        text: 'Videos I watched over time',
         align: 'left',
       },
       subtitle: {
@@ -230,13 +230,13 @@ function App() {
 
             return (
               `<b>Category: ${this.series.name}</b><br/>` +
-              `Total watch length: ${totalLength.toFixed(1)}s`
+              `Total watch length: ${formatWatchTime(totalLength)}`
             );
           }
 
           return (
             `<b>${this.point.name}</b><br/>` +
-            `Length: ${this.point.value}s<br/>` +
+            `Length: ${formatWatchTime(this.point.value)}<br/>` +
             `Watched: ${this.point.options.custom?.watchedOn || 'Unknown'}`
           );
         },
