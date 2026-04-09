@@ -4,7 +4,7 @@ name: Deploy app to Github Pages
 on:
   # Runs on pushes targeting the gh-pages branch
   push:
-    branches: ['gh-pages']
+    branches: ['main']
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -31,7 +31,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          ref: gh-pages
+          ref: main
       - name: Setup pnpm
         uses: pnpm/action-setup@v4.0.0
         with:
@@ -52,7 +52,7 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           # Upload dist folder
-          path: './dist'
+          path: './frontend/dist'
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
